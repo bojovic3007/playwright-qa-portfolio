@@ -1,12 +1,13 @@
-import { test, expect } from '@playwright/test';
-import { LoginPage } from '../../pages/LoginPage';
-import { ProductsPage } from '../../pages/ProductsPage';
+import { test, expect } from '../../fixtures/testFixtures';
 import { loginData } from '../../test-data/loginData';
 
-test('login and verify products are visible', async({page}) =>{
-    const loginPage = new LoginPage(page);
-    const productsPage = new ProductsPage(page);
+test('login and verify products are visible', async ({
+  page,
+  loginPage,
+  productsPage,
 
+}) => {
+    
     //Login
     await loginPage.navigate();
     await loginPage.login(loginData.validUser.username, 
